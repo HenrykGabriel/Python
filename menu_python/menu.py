@@ -9,7 +9,7 @@ def calculadora():
 
     print("CALCULADORA")
 
-    print("\nOPERAÇÕES")
+    print("\nOPERAÇÕES:")
     print("\n1) Adição")
     print("2) Subtração")
     print("3) Multiplicação")
@@ -27,19 +27,19 @@ def calculadora():
 
         if op == 1:
             soma = num1 + num2
-            print(f"\n{num1} + {num2} = {soma}")
+            print(f"\n{num1} + {num2} = {soma:.2f}")
         elif op == 2:
             sub = num1 - num2
-            print(f"\n{num1} - {num2} = {sub}")
+            print(f"\n{num1} - {num2} = {sub:.2f}")
         elif op == 3:
             mult = num1 * num2
-            print(f"\n{num1} * {num2} = {mult}")
+            print(f"\n{num1} * {num2} = {mult:.2f}")
         elif op == 4:
             div = num1 / num2
-            print(f"\n{num1} / {num2} = {div}")
+            print(f"\n{num1} / {num2} = {div:.2f}")
         else:
             potencia = num1 ** num2
-            print(f"\n{num1} ^ {num2} = {potencia}")
+            print(f"\n{num1} ^ {num2} = {potencia:.2f}")
     elif op == 6:
         os.system("cls")
 
@@ -47,7 +47,7 @@ def calculadora():
 
         raiz = math.sqrt(num)
 
-        print(f"\nA raiz quadrada de {num} é {raiz}")
+        print(f"\nA raiz quadrada de {num} é {raiz:.3f}")
 
     else:
         input("\nOpção inválida! Pressione Enter para voltar ao menu...")
@@ -81,7 +81,7 @@ def triangulos():
         input("\nImpossível formar um triângulo! Pressione Enter para voltar ao menu...")
         main()
 
-    input("Pressione enter para voltar ao menu...")
+    input("\nPressione enter para voltar ao menu...")
     main()
 
 
@@ -104,7 +104,7 @@ def hipotenusa():
 
         hipotenusa = math.sqrt(resultado)
 
-        print(f"\nA hipotenusa é {hipotenusa}")
+        print(f"\nA hipotenusa é {hipotenusa:.2f}")
     elif opcao == 2:
         os.system("cls")
 
@@ -115,7 +115,7 @@ def hipotenusa():
 
         cateto_desconhecido = math.sqrt(resultado)
 
-        print(f"\nO valoe do cateto desconhecido é {cateto_desconhecido}")
+        print(f"\nO comprimento do cateto desconhecido é {cateto_desconhecido:.2f}")
     else:
         input("\nOpção inválida, pressione enter para voltar ao menu...")
         main()
@@ -160,6 +160,54 @@ def media():
     main()
 
 
+def tabuada():
+    os.system("cls")
+
+    print("TABUADA")
+
+    num_tabuada = int(input("\nA tabuada será de qual número: "))
+    num_comeco = int(input("Em qual número a tabuada vai começar: "))
+    num_final = int(input("Em qual número ela terminará: "))
+
+    os.system("cls")
+
+    if num_comeco > num_final:
+        num_final, num_comeco = num_comeco, num_final
+
+    for i in range (num_comeco, num_final + 1):
+        tabuada = num_tabuada * i
+        print(f"{num_tabuada} * {i} = {tabuada}")
+
+    input("\nPressione enter para voltar ao menu...")
+    main()
+
+
+def equacao():
+    os.system("cls")
+
+    print("EQUAÇÃO DO 2° GRAU")
+
+    a = float(input("\nQual o valor de A: "))
+    b = float(input("Qual o valor de B: "))
+    c = float(input("Qual o valor de C: "))
+
+    delta = b ** 2 - 4 * a * c
+
+    if delta < 0:
+        print("\nA equação não possui nenhuma solução")
+    elif delta == 0:
+        x = (-b + math.sqrt(delta)) / 2 * a
+        print(f"\nA equação possui uma solução, x = {x:.2f}")
+    else:
+        x1 = (-b + math.sqrt(delta)) / 2 * a
+        x2 = (-b - math.sqrt(delta)) / 2 * a
+
+        print(f"\nA equação possui duas soluções, x1 = {x1:.2f} e x2 = {x2:.2f}")
+
+    input("\nPressione enter para voltar ao menu...")
+    main()
+
+
 
 
 
@@ -193,6 +241,14 @@ def main():
         elif opcao == "4":
             media()
         elif opcao == "5":
+            tabuada()
+        elif opcao == "6":
+            equacao()
+        elif opcao == "7":
+            media()
+        elif opcao == "8":
+            media()
+        elif opcao == "9":
             print("Saindo do programa... Até logo!")
             break
         else:

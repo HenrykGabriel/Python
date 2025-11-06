@@ -209,6 +209,71 @@ def equacao():
 
 
 
+def jogo():
+    os.system("cls")
+
+    print("JOGO DE ADVINHAÇÃO")
+
+    print("\nTente adivinhar um número de 1 a 40!")
+
+    input("\nPressione enter para começar: ")
+
+    os.system("cls")
+
+    num_random = random.randint(1, 40)
+    tentativas = 0
+
+    while True:
+
+        num_usuario = int(input("\nTente um número entre 1 e 40: "))
+
+        tentativas += 1
+
+        if num_usuario ==  num_random:
+            print(f"\nParábens! Você acertou em {tentativas} tentativa(s)")
+            break
+
+        elif num_usuario < 1 or num_usuario > 40:
+            print("\nNúmero inválido, pressione enter para voltar ao menu...")
+            main()
+        
+        elif num_usuario < num_random:
+            print("\nO número é maior!")
+
+        elif num_usuario > num_random:
+            print("\nO número é menor!")
+
+    input("\nPressione enter para voltar ao menu...")
+    main()
+
+
+
+def nome():
+    os.system("cls")
+
+    print("Separador de nome e sobrenome")
+
+    nome = input("\nDigite seu nome completo: ").strip()
+
+    partes = nome.split()
+
+    if len(partes) == 0:
+        input("\nNome inválido, pressione enter para voltar ao menu...")
+        main()
+    elif len(partes) == 1:
+        primeiro_nome = partes[0]
+        sobrenome = ""
+    else:
+        primeiro_nome = partes[0]
+        sobrenome = partes[-1]
+
+    print(f"\nPrimeiro nome: {primeiro_nome}")
+    print(f"Sobrenome: {sobrenome}")
+
+    input("\nPressione enter para voltar ao menu...")
+    main()
+
+
 
 
         
@@ -225,7 +290,7 @@ def main():
         print("║  4. Média com menção     ║")
         print("║  5. Tabuada              ║")
         print("║  6. Equação de 2° grau   ║")
-        print("║  7. Jogo de advinhação   ║")
+        print("║  7. Jogo de adivinhação  ║")
         print("║  8. Nome e Sobrenome     ║")
         print("║  9. Sair                 ║")
         print("╚══════════════════════════╝")
@@ -245,14 +310,14 @@ def main():
         elif opcao == "6":
             equacao()
         elif opcao == "7":
-            media()
+            jogo()
         elif opcao == "8":
-            media()
+            nome()
         elif opcao == "9":
-            print("Saindo do programa... Até logo!")
+            print("\nSaindo do programa... Até logo!")
             break
         else:
-            print("Opção inválida. Tente novamente.")
+            input("\nOpção inválida. Tente novamente apertando enter.")
 
 if __name__ == "__main__":
     main()

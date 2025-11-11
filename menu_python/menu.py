@@ -251,7 +251,7 @@ def jogo():
 def nome():
     os.system("cls")
 
-    print("Separador de nome e sobrenome")
+    print("SEPARADOR DE NOME E SOBRENOME")
 
     nome = input("\nDigite seu nome completo: ").strip()
 
@@ -264,7 +264,7 @@ def nome():
         primeiro_nome = partes[0]
         sobrenome = ""
     else:
-        primeiro_nome = partes[0]
+        primeiro_nome = " ".join(partes[:-1])
         sobrenome = partes[-1]
 
     print(f"\nPrimeiro nome: {primeiro_nome}")
